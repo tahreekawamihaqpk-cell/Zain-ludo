@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zain Ludo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #10251d;
+      color: white;
+      text-align: center;
+      padding: 24px 12px;
+    }
+    h1 { color: #ffd54a; }
+    .board {
+      max-width: 320px;
+      margin: 24px auto;
+      padding: 18px;
+      background: #f7f0dc;
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .home {
+      height: 75px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .red { background: #ed4545; }
+    .blue { background: #3988ef; }
+    .green { background: #32b96a; }
+    .yellow { background: #f6cc37; color: #222; }
+    button {
+      background: #ffd54a;
+      color: #17241c;
+      border: 0;
+      border-radius: 12px;
+      padding: 14px 24px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    #dice { font-size: 42px; margin: 18px; }
+  </style>
+</head>
+<body>
+  <h1>🎲 ZAIN LUDO</h1>
+  <p>Play with friends — coming soon!</p>
+
+  <div class="board">
+    <div class="home red">🔴</div>
+    <div class="home yellow">🟡</div>
+    <div class="home blue">🔵</div>
+    <div class="home green">🟢</div>
+    <div class="home">🏆</div>
+    <div class="home yellow">🟡</div>
+    <div class="home blue">🔵</div>
+    <div class="home red">🔴</div>
+    <div class="home green">🟢</div>
+  </div>
+
+  <div id="dice">🎲</div>
+  <button onclick="rollDice()">ROLL DICE</button>
+  <p id="message">Welcome to Zain Ludo!</p>
+
+  <script>
+    function rollDice() {
+      const number = Math.floor(Math.random() * 6) + 1;
+      document.getElementById("dice").textContent =
+        ["⚀","⚁","⚂","⚃","⚄","⚅"][number - 1];
+      document.getElementById("message").textContent =
+        "You rolled " + number + "!";
+    }
+  </script>
+</body>
+</html>
