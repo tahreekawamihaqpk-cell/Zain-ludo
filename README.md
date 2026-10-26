@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,158 +7,193 @@
 <title>Zain Ludo</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#10251e;color:white;font-family:Arial,sans-serif;text-align:center}
-h1{color:#ffd54f;margin:14px 0 4px}
-p{margin:6px}
-#status{min-height:24px;color:#ffe082}
-#board{display:grid;grid-template-columns:repeat(15,1fr);grid-template-rows:repeat(15,1fr);width:min(96vw,500px);aspect-ratio:1;margin:12px auto;background:#fff;border:4px solid white;gap:1px}
-.cell{background:#f4f4f4;display:flex;align-items:center;justify-content:center;position:relative;min-width:0;min-height:0}
-.home{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;padding:9%;border:2px solid white}
-.red{background:#e53935}.green{background:#2eaa58}.yellow{background:#f6d33d}.blue{background:#2584dc}
-.base{background:#fff;border-radius:18%;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px;padding:3px;width:100%;height:100%}
-.token{border:2px solid white;border-radius:50%;width:72%;aspect-ratio:1;max-width:24px;max-height:24px;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:bold;box-shadow:0 1px 3px #222;cursor:pointer}
-.path{background:#fff;border:1px solid #bbb}
-.safe{background:#fff3b0}
-.center{background:conic-gradient(#2eaa58 0 25%,#f6d33d 25% 50%,#2584dc 50% 75%,#e53935 75%);font-size:clamp(12px,4vw,25px)}
-button{border:0;border-radius:12px;padding:12px 18px;font-size:17px;font-weight:bold;cursor:pointer;margin:5px}
-#roll{background:#ffd54f;color:#222}
-#reset{background:#e8e8e8;color:#222}
-#dice{font-size:42px;margin:8px}
-#players{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
-.player{padding:7px 10px;border-radius:8px;background:#244338}
-.active{outline:3px solid #ffd54f}
-.note{font-size:12px;color:#d5e4db;padding:10px}
+body{margin:0;background:#17251e;color:white;font-family:Arial,sans-serif;text-align:center}
+h1{margin:12px;color:#ffd34e}
+#status{padding:10px;font-size:17px}
+#timer{font-size:24px;font-weight:bold;color:#ffd34e}
+#board{width:min(94vw,470px);aspect-ratio:1;margin:12px auto;display:grid;grid-template-columns:repeat(15,1fr);grid-template-rows:repeat(15,1fr);background:#fff;border:4px solid white;gap:1px}
+.cell{background:#f1f1e8;position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0}
+.base{grid-column:span 6;grid-row:span 6;display:grid;place-items:center}
+.base.green{background:#16883d;grid-area:1/1/7/7}
+.base.red{background:#d62828;grid-area:1/10/7/16}
+.base.blue{background:#2477d4;grid-area:10/1/16/7}
+.base.yellow{background:#f1c928;grid-area:10/10/16/16}
+.home{grid-area:7/7/10/10;background:#fff;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);display:grid;place-items:center;color:#222;font-size:10px;font-weight:bold}
+.nest{width:72%;height:72%;background:#fff;border-radius:15%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8%;padding:10%}
+.pawn{border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px #222;cursor:pointer;width:100%;height:100%;min-width:0;min-height:0}
+.green .pawn{background:#16883d}
+.red .pawn{background:#d62828}
+.blue .pawn{background:#2477d4}
+.yellow .pawn{background:#e7b900}
+.track{grid-area:1/7/7/10;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(6,1fr)}
+.track.right{grid-area:7/10/10/16;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(3,1fr)}
+.track.bottom{grid-area:10/7/16/10;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(6,1fr)}
+.track.left{grid-area:7/1/10/7;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(3,1fr)}
+.pathcell{background:#f7f7ed;border:1px solid #bbb;display:flex;align-items:center;justify-content:center;position:relative}
+.pathpawn{width:85%;height:85%;border-radius:50%;border:2px solid white;position:absolute;z-index:2}
+.greenColor{background:#16883d}.redColor{background:#d62828}.blueColor{background:#2477d4}.yellowColor{background:#e7b900}
+.baseLabel{font-size:12px;font-weight:bold;color:white}
+.yellow .baseLabel{color:#222}
+.controls{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin:15px}
+#dice{font-size:38px;background:white;color:#222;border-radius:12px;padding:8px 18px;min-width:76px}
+button{border:0;border-radius:10px;padding:12px 18px;font-size:16px;font-weight:bold;cursor:pointer}
+#roll{background:#ffd34e;color:#222}
+button:disabled{opacity:.45}
+#message{min-height:24px;padding:8px;color:#fff}
+.legend{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:10px}
 </style>
 </head>
 <body>
-<h1>🎲 Zain Ludo</h1>
-<p>Four Players · Local Pass-and-Play</p>
-<div id="players"></div>
-<div id="board"></div>
-<div id="dice">⚀</div>
-<button id="roll" onclick="rollDice()">🎲 Roll Dice</button>
-<button id="reset" onclick="resetGame()">↻ New Game</button>
-<p id="status">Red starts. Roll a 6 to bring a token out.</p>
-<p class="note">Tap one of your tokens after rolling. Play on the same device.</p>
-
+<h1>🎲 ZAIN LUDO</h1>
+<div id="status">Green کی باری</div>
+<div>باری کا وقت: <span id="timer">20</span> سیکنڈ</div>
+<div id="board">
+ <div class="base green"><div class="nest" id="nest-green"></div></div>
+ <div class="base red"><div class="nest" id="nest-red"></div></div>
+ <div class="base blue"><div class="nest" id="nest-blue"></div></div>
+ <div class="base yellow"><div class="nest" id="nest-yellow"></div></div>
+ <div class="track" id="track-top"></div>
+ <div class="track right" id="track-right"></div>
+ <div class="track bottom" id="track-bottom"></div>
+ <div class="track left" id="track-left"></div>
+ <div class="home">HOME</div>
+</div>
+<div class="controls">
+ <div id="dice">🎲</div>
+ <button id="roll" onclick="rollDice()">ROLL DICE</button>
+</div>
+<div id="message">ڈائس دبائیں۔ چھکا آنے پر دوبارہ ڈائس دبائیں۔</div>
+<div class="legend">
+ <span>🟢 Green</span><span>🔴 Red</span>
+ <span>🔵 Blue</span><span>🟡 Yellow</span>
+</div>
 <script>
-const colors=['red','green','yellow','blue'];
-const names=['Red','Green','Yellow','Blue'];
-const start=[0,13,26,39];
-const path=[];
-for(let c=1;c<=6;c++)path.push([6,c]);
-for(let r=5;r>=0;r--)path.push([r,7]);
-for(let r=0;r<=5;r++)path.push([r,8]);
-for(let c=9;c<=14;c++)path.push([6,c]);
-for(let r=7;r<=14;r++)path.push([r,8]);
-for(let c=13;c>=9;c--)path.push([8,c]);
-for(let r=9;r<=14;r++)path.push([8,r===14?7:6]);
-/* Build a reliable 52-cell shared route */
+const colors=["green","red","blue","yellow"];
+const names={green:"Green",red:"Red",blue:"Blue",yellow:"Yellow"};
+const emojis=["🟢","🔴","🔵","🟡"];
+let turn=0,dice=0,rolled=false,seconds=20,timer=null;
+let pawns={green:[-1,-1,-1,-1],red:[-1,-1,-1,-1],
+ blue:[-1,-1,-1,-1],yellow:[-1,-1,-1,-1]};
+const trackPositions=[];
+for(let r=1;r<=6;r++)trackPositions.push([r,7],[r,8],[r,9]);
+for(let c=10;c<=15;c++)trackPositions.push([7,c],[8,c],[9,c]);
+for(let r=10;r<=15;r++)trackPositions.push([r,9],[r,8],[r,7]);
+for(let c=6;c>=1;c--)trackPositions.push([9,c],[8,c],[7,c]);
+/* Use a circular 52-step route for each color. */
 const route=[];
-for(let c=1;c<=5;c++)route.push([6,c]);
-for(let r=5;r>=0;r--)route.push([r,6]);
-for(let r=0;r<=5;r++)route.push([r,8]);
-for(let c=9;c<=14;c++)route.push([6,c]);
-for(let r=7;r<=13;r++)route.push([r,8]);
-for(let c=7;c>=0;c--)route.push([8,c]);
-for(let r=9;r<=14;r++)route.push([r,6]);
-for(let c=5;c>=0;c--)route.push([8,c]);
-while(route.length<52)route.push([7,7]);
-const board=document.getElementById('board');
+for(let c=7;c<=9;c++)for(let r=1;r<=6;r++)route.push([r,c]);
+for(let r=7;r<=9;r++)for(let c=10;c<=15;c++)route.push([r,c]);
+for(let c=9;c>=7;c--)for(let r=10;r<=15;r++)route.push([r,c]);
+for(let r=9;r>=7;r--)for(let c=6;c>=1;c--)route.push([r,c]);
+/* Draw a simple 52-cell playable track. */
 const cells=[];
-for(let i=0;i<225;i++){
- const d=document.createElement('div');
- d.className='cell';
- d.id='c'+i;
- board.appendChild(d);cells.push(d);
+for(let i=0;i<52;i++){
+ const el=document.createElement("div");
+ el.className="pathcell";
+ el.dataset.index=i;
+ cells.push(el);
 }
-function cellAt(r,c){return cells[r*15+c]}
-function paintHome(color,r,c){
- const d=cellAt(r,c);d.className='cell home '+color;
- const base=document.createElement('div');base.className='base';
- for(let i=0;i<4;i++){
-  const t=document.createElement('button');t.className='token '+color;
-  t.textContent=i+1;t.style.width='34%';t.style.maxWidth='30px';
-  t.onclick=()=>selectToken(colors.indexOf(color),i);
-  base.appendChild(t);
+function drawTrack(){
+ const tracks=[
+  ...Array.from({length:18},(_,i)=>[i,0]),
+ ];
+ // Put route cells around the board edge of the central cross.
+ const top=document.getElementById("track-top");
+ const right=document.getElementById("track-right");
+ const bottom=document.getElementById("track-bottom");
+ const left=document.getElementById("track-left");
+ [top,right,bottom,left].forEach(x=>x.innerHTML="");
+ for(let i=0;i<18;i++){
+  let e=document.createElement("div");e.className="pathcell";
+  top.appendChild(e);
  }
- d.appendChild(base);
+ for(let i=0;i<18;i++){
+  let e=document.createElement("div");e.className="pathcell";
+  right.appendChild(e);
+ }
+ for(let i=0;i<18;i++){
+  let e=document.createElement("div");e.className="pathcell";
+  bottom.appendChild(e);
+ }
+ for(let i=0;i<18;i++){
+  let e=document.createElement("div");e.className="pathcell";
+  left.appendChild(e);
+ }
 }
-function setupBoard(){
- cells.forEach(d=>{d.className='cell';d.innerHTML=''});
- paintHome('red',0,0);paintHome('green',0,9);
- paintHome('blue',9,0);paintHome('yellow',9,9);
- route.forEach(([r,c],i)=>{
-  const d=cellAt(r,c);d.className='cell path';
-  if(i%13===0)d.classList.add('safe');
-  d.textContent='·';
- });
- cellAt(7,7).className='cell center';cellAt(7,7).textContent='★';
-}
-let pos,turn,dice,finished,rolled;
-function resetGame(){
- pos=colors.map(()=>[-1,-1,-1,-1]);turn=0;dice=0;finished=false;rolled=false;
- document.getElementById('dice').textContent='⚀';
- document.getElementById('status').textContent='Red starts. Roll a 6 to bring a token out.';
- setupBoard();render();
-}
+drawTrack();
 function render(){
- document.getElementById('players').innerHTML=names.map((n,i)=>
- '<div class="player '+(i===turn?'active':'')+'" style="border-bottom:4px solid '+colors[i]+'">'+n+(i===turn?' • Turn':'')+'</div>').join('');
- cells.forEach(d=>{if(d.classList.contains('path'))d.textContent=''});
- route.forEach(([r,c],i)=>{
-  const d=cellAt(r,c);d.className='cell path'+(i%13===0?' safe':'');d.textContent='';
+ colors.forEach(color=>{
+  const nest=document.getElementById("nest-"+color);
+  nest.innerHTML="";
+  pawns[color].forEach((pos,i)=>{
+   if(pos===-1){
+    const b=document.createElement("button");
+    b.className="pawn";b.title="گٹی نکالیں";
+    b.onclick=()=>choosePawn(color,i);
+    nest.appendChild(b);
+   }
+  });
  });
- for(let p=0;p<4;p++){
-  for(let t=0;t<4;t++){
-   const step=pos[p][t];if(step<0||step>=52)continue;
-   const [r,c]=route[(start[p]+step)%52];const d=cellAt(r,c);
-   const b=document.createElement('button');b.className='token '+colors[p];b.textContent=t+1;
-   b.title=names[p]+' token '+(t+1);
-   b.onclick=()=>selectToken(p,t);
-   d.appendChild(b);
+ document.getElementById("status").textContent=
+  names[colors[turn]]+" کی باری";
+ document.getElementById("roll").disabled=rolled;
+}
+function startTimer(){
+ clearInterval(timer);seconds=20;
+ document.getElementById("timer").textContent=seconds;
+ timer=setInterval(()=>{
+  seconds--;
+  document.getElementById("timer").textContent=seconds;
+  if(seconds<=0){
+   clearInterval(timer);
+   nextTurn("وقت ختم ہوگیا۔ اگلے کھلاڑی کی باری۔");
   }
- }
+ },1000);
 }
 function rollDice(){
- if(finished)return;
- if(rolled){say('Choose one of your tokens first.');return}
- dice=Math.floor(Math.random()*6)+1;rolled=true;
- document.getElementById('dice').textContent=['','⚀','⚁','⚂','⚃','⚄','⚅'][dice];
- const movable=pos[turn].some(s=>s<0?dice===6:s+dice<=57);
- if(!movable){say('No valid move. Next player.');setTimeout(nextTurn,800);return}
- say(names[turn]+' rolled '+dice+'. Tap a token to move.');
+ if(rolled)return;
+ dice=Math.floor(Math.random()*6)+1;
+ rolled=true;
+ document.getElementById("dice").textContent=
+  ["⚀","⚁","⚂","⚃","⚄","⚅"][dice-1];
+ document.getElementById("roll").disabled=true;
+ if(dice===6){
+  document.getElementById("message").textContent=
+   "چھکا! اسی کھلاڑی کو دوبارہ ڈائس دبانے کا موقع ہے۔";
+  rolled=false;
+  document.getElementById("roll").disabled=false;
+  startTimer();
+  return;
+ }
+ document.getElementById("message").textContent=
+  dice+" آیا۔ اپنی گٹی منتخب کریں۔";
+ startTimer();
 }
-function selectToken(p,t){
- if(finished||!rolled||p!==turn){return}
- let s=pos[p][t];
- if(s<0){if(dice!==6){say('You need a 6 to leave home.');return}pos[p][t]=0}
- else{
-  if(s+dice>57){say('Exact number needed to finish.');return}
-  pos[p][t]=s+dice;
+function choosePawn(color,index){
+ if(color!==colors[turn])return;
+ if(!rolled){
+  document.getElementById("message").textContent=
+   "پہلے ڈائس دبائیں۔";
+  return;
  }
- const now=pos[p][t];
- if(now<52){
-  const idx=(start[p]+now)%52;
-  if(idx%13!==0){
-   for(let q=0;q<4;q++)if(q!==p)for(let j=0;j<4;j++){
-    const other=pos[q][j];
-    if(other>=0&&other<52&&(start[q]+other)%52===idx)pos[q][j]=-1;
-   }
-  }
+ if(pawns[color][index]===-1){
+  document.getElementById("message").textContent=
+   "گٹی گھر سے نکالنے کے لیے 6 درکار ہے۔ دوبارہ کوشش کریں۔";
+  nextTurn("گٹی نکالنے کے لیے چھکا درکار ہے۔");
+  return;
  }
- render();
- if(pos[p].every(x=>x===57)){finished=true;say('🏆 '+names[p]+' wins!');return}
- const extra=dice===6||now===57;
+ pawns[color][index]+=dice;
+ nextTurn("گٹی چل گئی۔ اگلے کھلاڑی کی باری۔");
+}
+function nextTurn(message){
+ clearInterval(timer);
+ document.getElementById("message").textContent=message;
  rolled=false;dice=0;
- if(!extra)turn=(turn+1)%4;
- document.getElementById('dice').textContent='🎲';
- say(extra?names[p]+' gets another turn!':names[turn]+' turn. Roll the dice.');
- render();
+ turn=(turn+1)%4;
+ document.getElementById("dice").textContent="🎲";
+ render();startTimer();
 }
-function nextTurn(){rolled=false;dice=0;turn=(turn+1)%4;document.getElementById('dice').textContent='🎲';render();say(names[turn]+' turn. Roll the dice.')}
-function say(s){document.getElementById('status').textContent=s}
-resetGame();
+render();startTimer();
 </script>
 </body>
 </html>
