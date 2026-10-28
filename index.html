@@ -1,290 +1,37 @@
+/* ===== Zain Ludo - style.css (file 2) ===== */
 
-<!doctype html>
-<html lang="ur" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<meta name="theme-color" content="#101820">
-<title>Zain Ludo</title>
-<style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:#101820;color:#fff;font-family:system-ui,sans-serif;text-align:center}
-h1{margin:12px 0;color:#ffd54f}
-h2{font-size:20px}
-small{color:#bdc8d2}
-#setup,#game,#tournament{max-width:560px;margin:auto;padding:12px}
-.card{background:#1c2935;border:1px solid #354858;border-radius:16px;padding:14px;margin:12px 0}
-.opt{margin:15px 0}
-.opt b{display:block;margin-bottom:8px}
-.btn{background:#263746;color:white;border:2px solid #405566;border-radius:12px;padding:10px 13px;margin:3px;font-size:15px}
-.btn.on{background:#237c43;border-color:#83db9c}
-.go{background:#ffd54f;color:#171717;font-weight:bold;border:0;border-radius:13px;padding:14px 24px;font-size:19px;margin:10px}
-#game,#tournament{display:none}
-#msg{min-height:36px;padding:7px;font-size:16px}
-#board{direction:ltr;position:relative;width:min(96vw,540px);aspect-ratio:1;margin:8px auto;background:#fff;display:grid;grid-template-columns:repeat(15,1fr);grid-template-rows:repeat(15,1fr);border:3px solid #111}
-.cell{border:.5px solid #ddd;display:flex;align-items:center;justify-content:center;font-size:min(3vw,15px);color:#555}
-.center{position:absolute;left:40%;top:40%;width:20%;height:20%;background:conic-gradient(from -45deg,#43a047 0 25%,#fdd835 0 50%,#1e88e5 0 75%,#e53935 0)}
-#pieces{position:absolute;inset:0;pointer-events:none}
-.pc{position:absolute;width:5.5%;aspect-ratio:1;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px #000;transform:translate(-50%,-50%);transition:left .2s,top .2s;pointer-events:auto}
-.pc.can{animation:pulse .45s infinite alternate;z-index:5}
-@keyframes pulse{to{transform:translate(-50%,-50%) scale(1.35)}}
-#dice{font-size:50px;background:white;color:#111;border:5px solid #888;border-radius:15px;width:78px;height:78px}
-#status{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-#magic{display:none;background:#7b1fa2}
-#timer{font-weight:bold;color:#ffd54f}
-</style>
-</head>
-<body>
+:root {
+  --bg1: #1b1464;
+  --bg2: #3a1c9e;
+  --bg3: #7b2ff7;
+  --gold1: #ffe27a;
+  --gold2: #ffb300;
+  --red: #e53935;
+  --green: #2e9e44;
+  --yellow: #fbc02d;
+  --blue: #1e88e5;
+  --card: rgba(255, 255, 255, 0.12);
+  --card-border: rgba(255, 255, 255, 0.28);
+  --text: #ffffff;
+}
 
-<div id="setup">
-<h1>🎲 Zain Ludo</h1>
-<div class="card">
-<div class="opt"><b>گیم موڈ منتخب کریں</b>
-<button class="btn on" data-k="mode" data-v="quick">Quick</button>
-<button class="btn" data-k="mode" data-v="classic">Classic</button>
-<button class="btn" data-k="mode" data-v="master">Master</button>
-<button class="btn" data-k="mode" data-v="tournament">Tournament</button>
-</div>
-<div id="modeInfo">ایک گوٹی گھر پہنچائیں اور جیتیں۔</div>
-<div class="opt"><b>کھلاڑی</b>
-<button class="btn on" data-k="n" data-v="2">2 کھلاڑی</button>
-<button class="btn" data-k="n" data-v="4">4 کھلاڑی</button>
-</div>
-<div class="opt"><b>کھیلنے کا طریقہ</b>
-<button class="btn on" data-k="bots" data-v="yes">کمپیوٹر کے ساتھ</button>
-<button class="btn" data-k="bots" data-v="no">ایک فون پر دوست</button>
-</div>
-<button class="go" id="start">گیم شروع کریں</button>
-</div>
-<div class="card"><small>مرحلہ 1: بنیادی مقامی گیم۔ آن لائن روم، اکاؤنٹس، شاپ اور سرور اگلے مراحل میں اسی پروجیکٹ میں شامل ہوں گے۔</small></div>
-</div>
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+}
 
-<div id="tournament">
-<h1>🏆 Zain Ludo Tournament</h1>
-<div class="card">
-<h2>ٹورنامنٹ</h2>
-<p>اپنا موڈ منتخب کریں اور گیم شروع کریں۔</p>
-<p>ٹورنامنٹ کی خودکار میچ میکنگ اور انعامات کے لیے سرور درکار ہوگا۔</p>
-<button class="go" id="tStart">مقامی ٹورنامنٹ شروع کریں</button>
-<button class="btn" id="tBack">واپس</button>
-</div>
-</div>
+html, body {
+  height: 100%;
+  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Segoe UI", Tahoma, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 50% 0%, var(--bg3) 0%, var(--bg2) 40%, var(--bg1) 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
 
-<div id="game">
-<div id="msg"></div>
-<div id="status">
-<span id="timer">⏱ 20</span>
-<span id="modeLabel"></span>
-</div>
-<div id="board"></div>
-<button id="dice">🎲</button><br>
-<button class="btn" id="magic">✨ میجک</button>
-<button class="btn" id="menu">مین مینو</button>
-</div>
-
-<script>
-const $=id=>document.getElementById(id);
-const rand=n=>Math.floor(Math.random()*n);
-const COL=["#e53935","#43a047","#fdd835","#1e88e5"];
-const NAME=["سرخ","ہرا","پیلا","نیلا"];
-const FACE=["⚀","⚁","⚂","⚃","⚄","⚅"];
-const START=[0,13,26,39];
-const SAFE=new Set([0,8,13,21,26,34,39,47]);
-const T=[[6,1],[6,2],[6,3],[6,4],[6,5],[5,6],[4,6],[3,6],[2,6],[1,6],[0,6],[0,7],[0,8],[1,8],[2,8],[3,8],[4,8],[5,8],[6,9],[6,10],[6,11],[6,12],[6,13],[6,14],[7,14],[8,14],[8,13],[8,12],[8,11],[8,10],[8,9],[9,8],[10,8],[11,8],[12,8],[13,8],[14,8],[14,7],[14,6],[13,6],[12,6],[11,6],[10,6],[9,6],[8,5],[8,4],[8,3],[8,2],[8,1],[8,0],[7,0],[6,0]];
-const HOME=[
-[[7,1],[7,2],[7,3],[7,4],[7,5]],
-[[1,7],[2,7],[3,7],[4,7],[5,7]],
-[[7,13],[7,12],[7,11],[7,10],[7,9]],
-[[13,7],[12,7],[11,7],[10,7],[9,7]]
-];
-const Q=[[0,0],[0,9],[9,9],[9,0]];
-let cfg={mode:"quick",n:"2",bots:"yes"},S=null,timer=null;
-
-document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{
- cfg[b.dataset.k]=b.dataset.v;
- document.querySelectorAll('[data-k="'+b.dataset.k+'"]').forEach(x=>x.classList.toggle("on",x===b));
- if(b.dataset.k==="mode")showMode();
-});
-function showMode(){
- const info={
- quick:"ایک گوٹی گھر پہنچائیں اور جیتیں۔ میجک بند ہے۔",
- classic:"چاروں گوٹیاں گھر پہنچائیں۔ میجک دستیاب ہے۔",
- master:"ماسٹر موڈ: مخالف کی گوٹی مارنے کے بعد ہی گھر پہنچنے کی اجازت۔",
- tournament:"ٹورنامنٹ موڈ: اس ورژن میں مقامی میچ۔ آن لائن مقابلوں کے لیے سرور درکار ہے۔"
- };
- $("modeInfo").textContent=info[cfg.mode];
-}
-$("start").onclick=()=>cfg.mode==="tournament"?showTournament():start();
-$("tStart").onclick=start;
-$("tBack").onclick=()=>{$("tournament").style.display="none";$("setup").style.display="block"};
-function showTournament(){$("setup").style.display="none";$("tournament").style.display="block"}
-$("menu").onclick=()=>{
- clearInterval(timer);$("game").style.display="none";$("setup").style.display="block";
-};
-$("dice").onclick=()=>{if(S&&S.phase==="roll"&&!isBot(cur()))roll()};
-$("magic").onclick=()=>{
- if(!S||!["classic","master","tournament"].includes(cfg.mode))return;
- msg("✨ میجک منتخب ہے۔ خصوصی میجک اثرات ابھی نافذ نہیں ہیں۔");
-};
-const cur=()=>S.active[S.turn];
-const isBot=c=>cfg.bots==="yes"&&c!==0;
-const say=t=>$("msg").textContent=t;
-
-function start(){
- clearInterval(timer);
- S={active:cfg.n==="2"?[0,2]:[0,1,2,3],turn:0,
- pos:Array.from({length:4},()=>[-1,-1,-1,-1]),
- kills:[0,0,0,0],dice:0,sixes:0,phase:"roll",can:[],over:false,els:{}};
- $("setup").style.display="none";$("tournament").style.display="none";$("game").style.display="block";
- $("modeLabel").textContent=cfg.mode.toUpperCase();
- $("magic").style.display=["classic","master","tournament"].includes(cfg.mode)?"inline-block":"none";
- buildBoard();buildPieces();setTurn();
-}
-function buildBoard(){
- const b=$("board");b.innerHTML="";
- const tk=new Map();T.forEach((t,k)=>tk.set(t.join(","),k));
- const hm=new Map();HOME.forEach((h,c)=>h.forEach(t=>hm.set(t.join(","),c)));
- for(let r=0;r<15;r++)for(let c=0;c<15;c++){
-  const d=document.createElement("div");d.className="cell";const key=r+","+c;
-  let q=-1;
-  if(r<6&&c<6)q=0;else if(r<6&&c>8)q=1;else if(r>8&&c>8)q=2;else if(r>8&&c<6)q=3;
-  if(q>=0){
-   const r0=Q[q][0],c0=Q[q][1];
-   const inner=r>r0&&r<r0+5&&c>c0&&c<c0+5;
-   d.style.background=inner?"#fff":COL[q];d.style.border="none";
-  }else if(r>=6&&r<=8&&c>=6&&c<=8)d.style.border="none";
-  else if(hm.has(key))d.style.background=COL[hm.get(key)];
-  else if(tk.has(key)){
-   const k=tk.get(key);
-   if(START.includes(k))d.style.background=COL[START.indexOf(k)];
-   else if(SAFE.has(k))d.textContent="★";
-  }
-  b.appendChild(d);
- }
- const ce=document.createElement("div");ce.className="center";b.appendChild(ce);
- const pl=document.createElement("div");pl.id="pieces";b.appendChild(pl);
-}
-function buildPieces(){
- const pl=$("pieces");
- S.active.forEach(c=>{
-  S.els[c]=[];
-  for(let i=0;i<4;i++){
-   const e=document.createElement("div");e.className="pc";e.style.background=COL[c];
-   e.onclick=()=>{if(S.phase==="move"&&cur()===c&&S.can.includes(i))move(i)};
-   pl.appendChild(e);S.els[c].push(e);
-  }
- });
-}
-function posXY(c,i){
- const p=S.pos[c][i];
- if(p<0){const q=Q[c];return[q[0]+(i<2?2:4),q[1]+(i%2?4:2)]}
- if(p<=50){const t=T[(START[c]+p)%52];return[t[0]+.5,t[1]+.5]}
- if(p<=55){const t=HOME[c][p-51];return[t[0]+.5,t[1]+.5]}
- return[7.5,7.5];
-}
-function render(){
- const L=[];
- S.active.forEach(c=>{for(let i=0;i<4;i++){
-  const [y,x]=posXY(c,i);L.push({c,i,y,x});
- }});
- const counts={};
- L.forEach(o=>{const k=o.y+","+o.x;counts[k]=(counts[k]||0)+1;
-  if(counts[k]>1)o.x+=(counts[k]-1)*.22;
- });
- L.forEach(o=>{
-  const e=S.els[o.c][o.i];e.style.left=o.x*100/15+"%";e.style.top=o.y*100/15+"%";
-  e.classList.toggle("can",S.phase==="move"&&cur()===o.c&&S.can.includes(o.i));
- });
-}
-function setTurn(){
- S.phase="roll";S.can=[];render();
- $("dice").style.borderColor=COL[cur()];
- say(NAME[cur()]+" کی باری — پانسہ پھینکیں");
- startTimer();
- if(isBot(cur()))setTimeout(()=>{if(S&&!S.over&&S.phase==="roll")roll()},700);
-}
-function startTimer(){
- clearInterval(timer);let sec=20;$("timer").textContent="⏱ "+sec;
- timer=setInterval(()=>{
-  sec--;$("timer").textContent="⏱ "+sec;
-  if(sec<=0){clearInterval(timer);if(S&&!S.over){say("وقت ختم — اگلی باری");nextTurn()}}
- },1000);
-}
-function nextTurn(){
- if(S.over)return;
- clearInterval(timer);S.turn=(S.turn+1)%S.active.length;S.sixes=0;setTurn();
-}
-function roll(){
- if(S.phase!=="roll"||S.over)return;
- clearInterval(timer);S.phase="rolling";let n=0;
- const iv=setInterval(()=>{
-  $("dice").textContent=FACE[rand(6)];
-  if(++n>=8){clearInterval(iv);afterRoll(1+rand(6))}
- },65);
-}
-function movable(c,d){
- const r=[];
- for(let i=0;i<4;i++){
-  const p=S.pos[c][i];
-  if(p===-1){if(d===6)r.push(i)}
-  else if(p<56&&p+d<=56){
-   if(cfg.mode!=="master"||p+d<56||S.kills[c]>0)r.push(i);
-  }
- }
- return r;
-}
-function afterRoll(d){
- S.dice=d;$("dice").textContent=FACE[d-1];
- if(d===6){S.sixes++;if(S.sixes>=3){say("تین چھکے — باری ختم");return setTimeout(nextTurn,800)}}
- else S.sixes=0;
- const c=cur(),m=movable(c,d);
- if(!m.length){say(cfg.mode==="master"&&d!==6?"چال ممکن نہیں":"کوئی چال ممکن نہیں");return setTimeout(nextTurn,800)}
- if(isBot(c)){S.phase="moving";setTimeout(()=>move(botPick(c,d,m)),500)}
- else if(m.length===1){S.phase="moving";setTimeout(()=>move(m[0]),250)}
- else{S.phase="move";S.can=m;render();say("اپنی گوٹی منتخب کریں")}
-}
-function botPick(c,d,m){
- let best=m[0],score=-999;
- m.forEach(i=>{
-  const p=S.pos[c][i],np=p<0?0:p+d;let s=np;
-  if(np===56)s+=100;
-  if(p<0)s+=30;
-  if(np<=50&&!SAFE.has((START[c]+np)%52)){
-   S.active.forEach(o=>{if(o===c)return;
-    S.pos[o].forEach(q=>{if(q>=0&&q<=50&&(START[o]+q)%52===(START[c]+np)%52)s+=80})
-   });
-  }
-  if(s>score){score=s;best=i}
- });
- return best;
-}
-function move(i){
- if(S.over)return;
- const c=cur(),d=S.dice;S.can=[];S.phase="moving";
- let p=S.pos[c][i];p=p<0?0:p+d;
- if(p>56)return;
- S.pos[c][i]=p;let cap=false;
- if(p<=50){
-  const idx=(START[c]+p)%52;
-  if(!SAFE.has(idx)){
-   S.active.forEach(o=>{
-    if(o===c)return;
-    for(let j=0;j<4;j++){
-     const q=S.pos[o][j];
-     if(q>=0&&q<=50&&(START[o]+q)%52===idx){S.pos[o][j]=-1;cap=true;S.kills[c]++}
-    }
-   });
-  }
- }
- render();
- const won=cfg.mode==="quick"?S.pos[c].some(x=>x===56):S.pos[c].every(x=>x===56);
- if(won){S.over=true;clearInterval(timer);say("🏆 "+NAME[c]+" جیت گیا!");return}
- if(d===6||cap||p===56){
-  say(cap?"گوٹی ماری — دوبارہ باری":d===6?"چھکا — دوبارہ باری":"گھر پہنچی — دوبارہ باری");
-  S.phase="roll";S.can=[];startTimer();
-  if(isBot(c))setTimeout(()=>{if(!S.over&&S.phase==="roll")roll()},700);
- }else setTimeout(nextTurn,500);
-}
-</script>
-</body>
-</html>
+/* ---------- Screens ---------- */
+.screen {
+  display: none;
+  min-height: 100vh;
