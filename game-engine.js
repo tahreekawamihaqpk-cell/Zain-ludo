@@ -2,10 +2,10 @@
  * Owner-approved six sequence: roll again on each 6; after a non-6,
  * spend pending dice values in any order. Third consecutive 6 forfeits turn.
  */
-export const COLORS = ["green", "red", "yellow", "blue"];
+export const COLORS = ["green", "red", "blue", "yellow"];
 export const MODES = ["quick", "classic", "master"];
 export const BASE = -1;
-export const HOME = 57;
+export const HOME = 56;
 export const TRACK_LENGTH = 52;
 export const HOME_LANE_LENGTH = 6;
 export const SAFE_CELLS = new Set([0, 8, 13, 21, 26, 34, 39, 47]);
