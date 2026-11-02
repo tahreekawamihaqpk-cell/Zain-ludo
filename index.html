@@ -105,6 +105,48 @@ body{background:radial-gradient(ellipse at 50% 0%,#fff4c7 0,#f1d88d 42%,#c89b45 
 .token:after{content:"";position:absolute;left:23%;top:15%;width:30%;height:18%;border-radius:50%;background:#ffffffa8;filter:blur(1px);transform:rotate(-35deg)}
 .dice{border:2px solid #fff;background:linear-gradient(145deg,#fff,#e4dcc8);box-shadow:0 5px 0 #a78b5a,0 8px 14px #0003,inset 0 2px 4px #fff}
 @media(max-width:420px){.board-wrap{padding:6px;border-width:3px}.board{padding:4px}.home:before{letter-spacing:0}.yard{margin-top:13%;padding:6px}}
+
+/* Reference artwork: premium gold-framed, four-home Ludo board */
+body{background:radial-gradient(ellipse at 50% 15%,#75401f 0,#3b1b10 58%,#1b100b 100%);color:#fff}
+.app{max-width:760px}
+.top{background:linear-gradient(145deg,#153f84,#071b46);border:3px solid #f4bd35;box-shadow:0 5px 0 #8a510b,0 12px 24px #0009;color:#fff}
+.brand{color:#fff;text-shadow:0 3px 0 #123b79,0 5px 9px #000}.brand span{color:#ffd747}
+.tag{color:#ffe7a0}
+.panel{background:linear-gradient(145deg,#4c2918,#24150e);border:1px solid #e4ad35;color:#fff;box-shadow:0 7px 0 #170c07,0 13px 26px #0008}
+.panel h3,.panel p{color:#ffe9b0}
+.board-wrap{padding:11px;background:linear-gradient(145deg,#fff1a6 0,#e9a51c 25%,#9e580c 70%,#ffdb5a 100%);border:5px solid #ffdf65;border-radius:24px;box-shadow:0 9px 0 #6d3509,0 18px 30px #0009,inset 0 3px 8px #fff}
+.board{width:min(94vw,590px);padding:7px;gap:2px;background:linear-gradient(145deg,#fff0a8,#b87718 45%,#70400f);border:3px solid #fff2ba;border-radius:12px;box-shadow:inset 0 0 0 2px #8d5916,0 5px 14px #32180599}
+.cell{background:linear-gradient(145deg,#fff 0,#f4f5fa 65%,#cbd2df 100%);border:1px solid #aab2c0;border-radius:2px;box-shadow:inset 0 2px 2px #fff,inset 0 -2px 3px #6e778655}
+.home{border:3px solid #fff;border-radius:7px;box-shadow:inset 0 4px 12px #0004,inset 0 -3px 8px #0003}
+.home.red{background:linear-gradient(145deg,#ff6b69,#c80f28)}
+.home.green{background:linear-gradient(145deg,#4dff75,#009b36)}
+.home.yellow{background:linear-gradient(145deg,#fff34b,#f0ad00)}
+.home.blue{background:linear-gradient(145deg,#28a5ff,#004ecb)}
+.home:before{top:4%;font-size:clamp(7px,1.5vw,11px);letter-spacing:1px}
+.yard{width:80%;height:75%;margin-top:10%;padding:8px;gap:8px;border:3px solid #fff;border-radius:50%;background:radial-gradient(circle,#fff 0,#e9edf5 72%,#c4cad5 100%);box-shadow:0 5px 12px #0006,inset 0 2px 7px #0003}
+.yard i{border-radius:50%;background:radial-gradient(circle at 30% 22%,#fff 0,#f6f6f6 35%,#aeb6c4 100%);border:2px solid #d4d9e1;box-shadow:inset 0 3px 6px #0004,0 2px 3px #fff}
+.track{background:linear-gradient(145deg,#fff 0,#f7f8fb 55%,#cbd2df 100%)}
+.track.safe:after{color:#d9a21c;font-size:clamp(9px,2vw,14px);text-shadow:0 1px #fff}
+.lane.red{background:linear-gradient(145deg,#ffb4b4,#ed3544);border-color:#bd2634}
+.lane.green{background:linear-gradient(145deg,#b4ffb9,#28bf58);border-color:#16843b}
+.lane.yellow{background:linear-gradient(145deg,#fff7a7,#f3c51c);border-color:#c18b0d}
+.lane.blue{background:linear-gradient(145deg,#b4ddff,#2685ed);border-color:#1457ad}
+.center{background:conic-gradient(from -45deg,#ed293b 0 25%,#ffc928 0 50%,#1685ed 0 75%,#13ae48 0);filter:drop-shadow(0 3px 4px #0008)}
+.center:after{content:"Z";position:absolute;inset:30%;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff8c5,#d99b12);border:2px solid #fff3b0;color:#734300;font-weight:1000;font-size:clamp(10px,2.4vw,22px);box-shadow:0 2px 5px #0007}
+.token{inset:3%;border:2px solid #fff;border-radius:50%;box-shadow:0 4px 0 #75410a,0 7px 10px #0009,inset 0 4px 6px #ffffffd9,inset 0 -6px 8px #0006;transform:translateY(-2px)}
+.token:after{content:"";position:absolute;left:22%;top:12%;width:34%;height:19%;border-radius:50%;background:#ffffffc9;filter:blur(1px);transform:rotate(-35deg)}
+.token.red{background:radial-gradient(circle at 30% 22%,#fff 0,#ff9b9b 12%,#f32636 48%,#9d0018 100%)}
+.token.green{background:radial-gradient(circle at 30% 22%,#fff 0,#aaffbb 12%,#18db51 48%,#006d23 100%)}
+.token.yellow{background:radial-gradient(circle at 30% 22%,#fff 0,#fff8a0 12%,#ffda00 48%,#a86c00 100%)}
+.token.blue{background:radial-gradient(circle at 30% 22%,#fff 0,#a8dcff 12%,#087cff 48%,#003b9c 100%)}
+.dice{background:linear-gradient(145deg,#fff,#dfe5f0);border:2px solid #fff;border-radius:17px;box-shadow:0 6px 0 #9b8d74,0 10px 16px #0008,inset 0 3px 5px #fff;color:#172033}
+.roll{background:linear-gradient(145deg,#fff07a,#e59b0a);border:2px solid #fff1a8;color:#4a2a00;box-shadow:0 5px 0 #87500a,0 8px 14px #0007}
+.hint{color:#ffe5a0}.turn{color:#fff}.turn small{color:#e9cf9b}
+.player{background:linear-gradient(145deg,#fff2d0,#d6b16c);border:1px solid #fff0bd;color:#4b2b08}
+.player.active{outline:3px solid #ffd64c;background:#fff4c5}
+.mode{background:linear-gradient(145deg,#fff2d0,#d6b16c);border:1px solid #fff0bd;color:#4b2b08}
+.mode.active{background:linear-gradient(145deg,#fff078,#e49a0c);color:#4b2b08}
+@media(max-width:420px){.board-wrap{padding:6px;border-width:3px}.board{padding:4px;gap:1px}.yard{gap:5px;padding:5px}.token{inset:2%}}
 </style></head><body><main class="app"><header class="top"><div><div class="brand">ZAIN <span>LUDO</span></div><div class="tag">Created by Zahid Khan Mandan</div></div><div class="tag">MOBILE PLAY TEST</div></header>
 <section class="panel" id="homeScreen"><div style="text-align:center;padding:24px 8px"><div style="font-size:42px;font-weight:1000;color:#ffd34d">ZAIN LUDO</div><div style="color:#dbeafe">Created by Zahid Khan Mandan</div><div style="font-size:76px;margin:22px">🎲</div><button id="playButton" class="roll" style="width:90%;font-size:18px;padding:18px">▶ PLAY NOW</button><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px"><button class="mode homeAction" data-action="friends">👥 FRIENDS</button><button class="mode homeAction" data-action="tournament">🏆 TOURNAMENT</button><button class="mode homeAction" data-action="vip">👑 VIP CLUB</button><button class="mode homeAction" data-action="profile">👤 PROFILE</button></div></div></section><section class="panel" id="modeScreen" hidden><h3>CHOOSE GAME MODE</h3><div class="modes" id="modes"><button class="mode active">Quick</button><button class="mode">Classic</button><button class="mode">Master</button><button class="mode">Tournament</button><button class="mode">Pro</button></div></section>
 <section class="panel" id="setupScreen" hidden><h3>GAME SETUP</h3><p>Choose players</p><div class="modes" id="playerChoices" style="grid-template-columns:1fr 1fr"><button class="mode active" data-players="2">2 PLAYERS</button><button class="mode" data-players="4">4 PLAYERS</button></div><p>Play type</p><div class="modes" id="teamChoices" style="grid-template-columns:1fr 1fr"><button class="mode active" data-team="solo">SOLO</button><button class="mode" data-team="team">TEAM</button></div><button id="startGame" class="roll" style="width:100%;margin-top:18px">START GAME</button><button id="backToModes" class="mode" style="width:100%;margin-top:8px">BACK</button></section><section class="panel board-wrap" id="boardScreen" hidden><div class="board" id="board"></div></section>
