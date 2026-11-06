@@ -162,6 +162,100 @@ body{background:radial-gradient(ellipse at 50% 15%,#75401f 0,#3b1b10 58%,#1b100b
 .roll{box-shadow:0 6px 0 #87500a,0 10px 18px #0008,inset 0 2px 4px #fff8}
 @media(max-width:420px){.board{transform:none}.token{transform:translateY(-2px)}}
 
+
+/* ZAIN LUDO — 3D board build: raised frame, beveled tiles and sculpted pieces */
+#boardScreen{overflow:visible}
+.board-wrap{
+  perspective:1400px;
+  perspective-origin:50% 42%;
+  padding:13px 13px 17px;
+  border:5px solid #ffe58a;
+  border-radius:25px;
+  background:linear-gradient(145deg,#fff5bd 0%,#e8ad31 32%,#a45d13 72%,#63370d 100%);
+  box-shadow:0 7px 0 #603308,0 13px 0 #3d2109,0 24px 35px #000b,inset 0 3px 7px #fff;
+}
+.board{
+  position:relative;
+  isolation:isolate;
+  transform:rotateX(5deg);
+  transform-origin:50% 55%;
+  transform-style:preserve-3d;
+  width:min(94vw,590px);
+  padding:8px;
+  gap:2px;
+  border:4px solid #fff0b2;
+  border-radius:14px;
+  background:linear-gradient(145deg,#fff1a8,#b87518 52%,#63390e);
+  box-shadow:0 7px 0 #68400f,0 12px 17px #28140599,inset 0 2px 6px #fff;
+}
+.board:after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border:1px solid #fff9d5;
+  border-radius:8px;
+  pointer-events:none;
+  z-index:20;
+}
+.cell{
+  border:1px solid #a9a18e;
+  border-radius:2px;
+  background:linear-gradient(145deg,#fff 0%,#f5f4ee 52%,#c5c9d0 100%);
+  box-shadow:inset 0 2px 3px #fff,inset 0 -3px 4px #68708077,0 2px 1px #59370c66;
+}
+.home{
+  transform:translateZ(5px);
+  border:3px solid #fff;
+  box-shadow:inset 0 5px 13px #0005,inset 0 -3px 8px #0004,0 4px 5px #492b0b99;
+}
+.yard{
+  border:3px solid #fff;
+  background:linear-gradient(145deg,#fff,#d9dce3);
+  box-shadow:0 7px 12px #0008,inset 0 3px 8px #0004,inset 0 -2px 3px #fff;
+}
+.yard i{
+  border:2px solid #c2c6ce;
+  background:radial-gradient(circle at 30% 22%,#fff 0,#f7f7f5 35%,#aeb5c0 100%);
+  box-shadow:inset 0 4px 8px #0005,0 2px 2px #fff,0 3px 4px #51401f66;
+}
+.track{
+  box-shadow:inset 0 2px 3px #fff,inset 0 -3px 4px #64708466,0 2px 1px #59370c55;
+}
+.lane.red,.lane.green,.lane.yellow,.lane.blue{
+  box-shadow:inset 0 2px 4px #fff9,inset 0 -3px 4px #0003,0 2px 1px #57380b55;
+}
+.center{
+  transform:translateZ(6px);
+  filter:drop-shadow(0 4px 3px #0009);
+}
+.token{
+  inset:4%;
+  border:2px solid #fff;
+  transform:translateY(-5px) translateZ(12px);
+  box-shadow:0 3px 0 #5b3009,0 7px 0 #3c2108,0 11px 12px #000b,inset 0 4px 7px #ffffffed,inset 0 -7px 9px #0008;
+  transition:transform .16s ease,filter .16s ease;
+}
+.token:active{transform:translateY(-1px) translateZ(5px) scale(.96)}
+.token.selectable{
+  outline:3px solid #fff;
+  outline-offset:2px;
+  filter:drop-shadow(0 0 7px #fff) drop-shadow(0 7px 4px #0008);
+}
+.dice{
+  border:2px solid #fff;
+  background:linear-gradient(145deg,#fff,#d8dce5);
+  box-shadow:0 4px 0 #9b8a69,0 8px 13px #0008,inset 0 3px 5px #fff;
+}
+.roll{
+  border:2px solid #fff2b4;
+  box-shadow:0 5px 0 #8a510a,0 9px 14px #0008,inset 0 2px 4px #fff9;
+}
+@media(max-width:520px){
+ .board-wrap{padding:6px 6px 9px;border-width:3px}
+ .board{transform:rotateX(2deg);padding:4px;gap:1px}
+ .token{transform:translateY(-3px) translateZ(6px);box-shadow:0 2px 0 #5b3009,0 5px 0 #3c2108,0 7px 8px #0009,inset 0 3px 5px #ffffffed,inset 0 -5px 7px #0008}
+}
+
 </style></head><body><main class="app"><header class="top"><div><div class="brand">ZAIN <span>LUDO</span></div><div class="tag">Created by Zahid Khan Mandan</div></div><div class="tag">MOBILE PLAY TEST</div></header>
 <section class="panel" id="homeScreen"><div style="text-align:center;padding:24px 8px"><div style="font-size:42px;font-weight:1000;color:#ffd34d">ZAIN LUDO</div><div style="color:#dbeafe">Created by Zahid Khan Mandan</div><div style="font-size:76px;margin:22px">🎲</div><button id="playButton" class="roll" style="width:90%;font-size:18px;padding:18px">▶ PLAY NOW</button><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px"><button class="mode homeAction" data-action="friends">👥 FRIENDS</button><button class="mode homeAction" data-action="tournament">🏆 TOURNAMENT</button><button class="mode homeAction" data-action="vip">👑 VIP CLUB</button><button class="mode homeAction" data-action="profile">👤 PROFILE</button></div></div></section><section class="panel" id="modeScreen" hidden><h3>CHOOSE GAME MODE</h3><div class="modes" id="modes"><button class="mode active">Quick</button><button class="mode">Classic</button><button class="mode">Master</button><button class="mode">Tournament</button><button class="mode">Pro</button></div></section>
 <section class="panel" id="setupScreen" hidden><h3>GAME SETUP</h3><p>Choose players</p><div class="modes" id="playerChoices" style="grid-template-columns:1fr 1fr"><button class="mode active" data-players="2">2 PLAYERS</button><button class="mode" data-players="4">4 PLAYERS</button></div><p>Play type</p><div class="modes" id="teamChoices" style="grid-template-columns:1fr 1fr"><button class="mode active" data-team="solo">SOLO</button><button class="mode" data-team="team">TEAM</button></div><button id="startGame" class="roll" style="width:100%;margin-top:18px">START GAME</button><button id="backToModes" class="mode" style="width:100%;margin-top:8px">BACK</button></section><section class="panel board-wrap" id="boardScreen" hidden><div class="board" id="board"></div></section>
