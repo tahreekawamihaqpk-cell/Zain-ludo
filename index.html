@@ -350,6 +350,47 @@ body{background:radial-gradient(ellipse at 50% 15%,#75401f 0,#3b1b10 58%,#1b100b
 }
 .roll{box-shadow:0 5px 0 #8a520d,0 9px 15px #0005,inset 0 2px 4px #fff9}
 @media(max-width:420px){.board-wrap{border-width:3px;padding:5px}.board{transform:rotateX(1deg);padding:4px}.token{inset:4%}}
+
+/* ZAIN LUDO — distinct premium 3D finish (removes old yellow-board look) */
+:root{--red:#f1263d;--green:#08b957;--yellow:#ffc400;--blue:#087cf0;--ink:#f8fbff}
+html,body{background:#080f20!important;color:#f8fbff!important}
+body{background:radial-gradient(ellipse at 50% 0%,#233b62 0%,#101c34 48%,#070d19 100%)!important}
+.app{max-width:820px}
+.top{background:linear-gradient(145deg,#1c3760,#0b1730)!important;border:1px solid #8ba8d2!important;border-bottom:4px solid #e2b94d!important;border-radius:20px!important;box-shadow:0 10px 0 #050b16,0 18px 32px #0009!important;color:#fff!important}
+.brand{color:#fff!important;text-shadow:0 3px 8px #000!important}.brand span{color:#ffd34e!important}.tag{color:#c8d8f0!important}
+.panel{background:linear-gradient(145deg,#1b2c49,#101a2e)!important;border:1px solid #496487!important;border-radius:20px!important;box-shadow:0 8px 0 #070e1b,0 16px 28px #0008!important;color:#f8fbff!important}
+.panel h3,.panel p,.turn{color:#f8fbff!important}.turn small,.hint{color:#c2d2e9!important}
+.board-wrap{padding:10px!important;background:linear-gradient(145deg,#344b6b,#111c31 60%,#070d18)!important;border:3px solid #8ea6c8!important;border-radius:24px!important;box-shadow:0 12px 0 #050a13,0 24px 36px #000b,inset 0 2px 5px #fff5!important;perspective:1200px}
+.board{width:min(94vw,590px)!important;padding:7px!important;gap:2px!important;background:linear-gradient(145deg,#172944,#07111f)!important;border:2px solid #91a9ca!important;border-radius:14px!important;box-shadow:0 16px 20px #0009,inset 0 2px 5px #fff5!important;transform:rotateX(2deg);transform-style:preserve-3d}
+.cell{background:linear-gradient(145deg,#fff 0%,#dce5f1 65%,#9eacc0 100%)!important;border:1px solid #7f91aa!important;border-radius:2px!important;box-shadow:inset 0 2px 3px #fff,inset 0 -3px 4px #53647c88,0 1px 2px #0008!important}
+.home{border:3px solid #f7fbff!important;border-radius:8px!important;box-shadow:inset 0 5px 14px #0007,inset 0 -3px 8px #0005,0 5px 8px #0008!important;transform:translateZ(5px)}
+.home.red{background:linear-gradient(145deg,#ff8791,#e20e2b 58%,#82091c)!important}
+.home.green{background:linear-gradient(145deg,#8affb5,#08ad55 58%,#05602e)!important}
+.home.yellow{background:linear-gradient(145deg,#fff38a,#ffc400 58%,#a96a00)!important}
+.home.blue{background:linear-gradient(145deg,#8dcaff,#087cf0 58%,#073d91)!important}
+.yard{width:78%!important;height:75%!important;margin-top:10%!important;padding:8px!important;gap:8px!important;border:3px solid #fff!important;border-radius:18px!important;background:radial-gradient(circle at 32% 22%,#fff,#dce5f2 70%,#8797ad)!important;box-shadow:0 7px 13px #0009,inset 0 3px 8px #596a82!important}
+.yard i{border:2px solid #8798b0!important;background:radial-gradient(circle at 30% 22%,#fff 0,#eaf0f8 35%,#8998ad 100%)!important;box-shadow:inset 0 4px 8px #53617688,0 3px 4px #0006!important}
+.track{background:linear-gradient(145deg,#fff,#e5edf7 55%,#aab8ca)!important;border:1px solid #8798af!important;box-shadow:inset 0 2px 3px #fff,inset 0 -3px 4px #66758a88,0 1px 2px #0006!important}
+.track.safe:after{color:#d19b19!important;text-shadow:0 1px 2px #fff!important}
+.lane.red{background:linear-gradient(145deg,#ff9da5,#f1263d 70%,#a40920)!important;border-color:#8e1024!important}
+.lane.green{background:linear-gradient(145deg,#a3ffc2,#08b957 70%,#056332)!important;border-color:#075c31!important}
+.lane.yellow{background:linear-gradient(145deg,#fff6a5,#ffc400 70%,#a86a00)!important;border-color:#9a6808!important}
+.lane.blue{background:linear-gradient(145deg,#b2dcff,#087cf0 70%,#063c8e)!important;border-color:#073d8a!important}
+.center{background:conic-gradient(from -45deg,#f1263d 0 25%,#ffc400 0 50%,#087cf0 0 75%,#08b957 0)!important;filter:drop-shadow(0 5px 5px #000b)!important}
+.center:after{background:radial-gradient(circle at 30% 22%,#fff7cc,#d7a52b 72%,#76500c)!important;border:3px solid #fff2b8!important;color:#553500!important;box-shadow:0 4px 8px #0009!important}
+.token{inset:3%!important;border:2px solid #fff!important;border-radius:50%!important;transform:translateY(-4px) translateZ(9px)!important;box-shadow:0 5px 0 #26364c,0 10px 13px #000b,inset 0 4px 7px #ffffffed,inset 0 -7px 9px #0008!important}
+.token:after{content:""!important;position:absolute!important;left:22%!important;top:12%!important;width:34%!important;height:19%!important;border-radius:50%!important;background:#ffffffd9!important;filter:blur(1px)!important;transform:rotate(-35deg)!important}
+.token.red{background:radial-gradient(circle at 30% 22%,#fff 0,#ff9ca4 13%,#f1263d 48%,#85091d 100%)!important}
+.token.green{background:radial-gradient(circle at 30% 22%,#fff 0,#a6ffd0 13%,#08b957 48%,#045b2b 100%)!important}
+.token.yellow{background:radial-gradient(circle at 30% 22%,#fff 0,#fff5a0 13%,#ffc400 48%,#8d5900 100%)!important}
+.token.blue{background:radial-gradient(circle at 30% 22%,#fff 0,#a9d9ff 13%,#087cf0 48%,#063577 100%)!important}
+.token.selectable{outline:3px solid #fff!important;outline-offset:2px!important;filter:drop-shadow(0 0 8px #fff)!important}
+.dice{background:linear-gradient(145deg,#fff,#dce5f1)!important;border:2px solid #fff!important;color:#15233b!important;box-shadow:0 7px 0 #73839a,0 11px 18px #0009,inset 0 3px 5px #fff!important;transform:translateY(-2px)}
+.roll{background:linear-gradient(145deg,#ffe987,#e6a51a)!important;border:1px solid #fff0a8!important;color:#342000!important;box-shadow:0 6px 0 #875b0b,0 10px 17px #0009,inset 0 2px 4px #fff9!important}
+.mode,.player{background:linear-gradient(145deg,#263b5d,#14243e)!important;border:1px solid #58749b!important;color:#f4f8ff!important}
+.mode.active,.player.active{background:linear-gradient(145deg,#ffe47c,#d99a16)!important;color:#352000!important;border-color:#fff0a6!important}
+@media(max-width:420px){.app{padding:8px 7px 24px}.board-wrap{padding:6px!important}.board{padding:4px!important;gap:1px!important;transform:none}.yard{gap:5px!important;padding:5px!important}.token{transform:translateY(-2px)!important}.top{padding:10px}}
+
 </style></head><body><main class="app"><header class="top"><div><div class="brand">ZAIN <span>LUDO</span></div><div class="tag">Created by Zahid Khan Mandan</div></div><div class="tag">MOBILE PLAY TEST</div></header>
 <section class="panel" id="homeScreen"><div class="splash-inner">
 <div class="splash-crown">👑</div>
