@@ -514,3 +514,14 @@ document.getElementById('startGame').onclick=()=>{activePlayers=chosenPlayers===
 document.querySelectorAll('.homeAction').forEach(b=>b.onclick=()=>{chosenMode=b.dataset.action==='tournament'?'Tournament':b.dataset.action==='classic'?'Classic':'Master';document.querySelectorAll('#modes .mode').forEach(x=>x.classList.toggle('active',x.textContent.trim()===chosenMode));showScreen('setupScreen')});
 draw();refresh();showScreen('homeScreen');
 </script></body></html>
+
+/* ZAIN LUDO — home preview orientation matches the live board */
+.splash-board-grid .splash-home.green{grid-column:1;grid-row:1}
+.splash-board-grid .splash-home.red{grid-column:2;grid-row:1}
+.splash-board-grid .splash-home.yellow{grid-column:1;grid-row:2}
+.splash-board-grid .splash-home.blue{grid-column:2;grid-row:2}
+.splash-board-grid{grid-template-areas:"green red" "yellow blue"}
+.splash-board-grid .splash-home{position:relative;min-width:0;min-height:0}
+.splash-home span{border-radius:13px;box-shadow:0 5px 0 #0005,0 8px 12px #0005,inset 0 2px 4px #fff}
+.splash-home i{border-radius:50%;box-shadow:0 3px 0 #0005,inset 0 3px 5px #fff9,inset 0 -3px 5px #0005}
+.splash-cross{z-index:2;text-shadow:0 2px 4px #0008}
