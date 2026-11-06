@@ -256,8 +256,65 @@ body{background:radial-gradient(ellipse at 50% 15%,#75401f 0,#3b1b10 58%,#1b100b
  .token{transform:translateY(-3px) translateZ(6px);box-shadow:0 2px 0 #5b3009,0 5px 0 #3c2108,0 7px 8px #0009,inset 0 3px 5px #ffffffed,inset 0 -5px 7px #0008}
 }
 
+
+/* GOLDEN SPLASH SCREEN — matched to supplied Zain Ludo reference */
+#homeScreen{
+  position:relative;overflow:hidden;text-align:center;padding:0!important;
+  border:3px solid #ffe36a;border-radius:28px;
+  background:radial-gradient(ellipse at 50% 28%,#fffde1 0,#ffed77 38%,#ffbd13 76%,#f28a00 100%);
+  color:#17245d;box-shadow:0 8px 0 #a85c08,0 18px 34px #44200688,inset 0 0 35px #fff9;
+}
+#homeScreen:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.65;background:repeating-conic-gradient(from 0deg at 50% 25%,#fff8 0deg 5deg,transparent 5deg 15deg);mask-image:linear-gradient(#000,transparent 72%)}
+.splash-inner{position:relative;z-index:1;padding:12px 12px 18px}
+.splash-crown{font-size:clamp(45px,12vw,78px);line-height:1.05;filter:drop-shadow(0 5px 2px #8b4b08)}
+.splash-logo{display:inline-block;margin:2px auto 9px;padding:5px 18px 12px;border:5px solid #ffdf4c;border-radius:28px;background:linear-gradient(145deg,#073c9c,#061a55 70%);box-shadow:0 8px 0 #633b08,0 13px 18px #542a0788,inset 0 3px 5px #fff9;transform:perspective(500px) rotateX(4deg)}
+.splash-logo strong{display:block;font-size:clamp(43px,12vw,76px);line-height:.95;font-weight:1000;letter-spacing:-3px;color:#ff302d;-webkit-text-stroke:2px #fff;text-shadow:0 4px 0 #741018,0 8px 0 #061c68,0 10px 12px #0009}
+.splash-logo em{display:block;font-style:normal;font-size:clamp(46px,13vw,82px);font-weight:1000;line-height:1;color:#087aff;-webkit-text-stroke:2px #fff;text-shadow:0 4px 0 #07327f,0 8px 0 #06194d,0 10px 12px #0009}
+.splash-sub{font-weight:900;color:#153a9a;text-shadow:0 1px #fff;font-size:12px}
+.splash-board{position:relative;width:min(92%,470px);aspect-ratio:1.28;margin:14px auto 18px;padding:7px;border:5px solid #ffdf4b;border-radius:19px;background:linear-gradient(145deg,#fff4a9,#b96e0b);box-shadow:0 8px 0 #8b4c0a,0 13px 18px #542c0b77,inset 0 2px 5px #fff}
+.splash-board-grid{height:100%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;transform:perspective(700px) rotateX(7deg)}
+.splash-home{border:3px solid #fff;border-radius:9px;display:grid;place-items:center;box-shadow:inset 0 4px 8px #0003,0 2px 2px #71400c}
+.splash-home span{width:68%;height:68%;border:4px solid #fff;border-radius:15px;background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:9px;box-shadow:0 4px 7px #0004}
+.splash-home i{border-radius:50%;box-shadow:inset 0 3px 5px #0003,0 1px 2px #fff}
+.splash-home.red{background:linear-gradient(145deg,#ff7777,#c90020)}.splash-home.green{background:linear-gradient(145deg,#72ff8d,#008b35)}
+.splash-home.blue{background:linear-gradient(145deg,#4cc8ff,#0052c8)}.splash-home.yellow{background:linear-gradient(145deg,#fff16a,#e7a000)}
+.splash-home.red i{background:#e51b2d}.splash-home.green i{background:#0ab847}.splash-home.blue i{background:#087bfa}.splash-home.yellow i{background:#ffc400}
+.splash-cross{position:absolute;left:42%;top:37%;width:16%;height:26%;display:grid;place-items:center;background:conic-gradient(#e51b2d 0 25%,#ffc400 0 50%,#087bfa 0 75%,#0ab847 0);border:2px solid #fff;box-shadow:0 3px 6px #0006;font-size:clamp(23px,6vw,42px)}
+.splash-dice{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);font-size:clamp(38px,10vw,65px);filter:drop-shadow(0 5px 3px #0008);white-space:nowrap}
+.splash-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px auto;max-width:560px}
+.splash-mode{min-height:64px;border:3px solid #fff;border-radius:20px;color:#fff;font-size:clamp(15px,4vw,22px);font-weight:1000;text-shadow:0 2px 3px #0009;box-shadow:0 6px 0 #75420b,0 9px 12px #0005,inset 0 3px 5px #fff9}
+.splash-mode.quick{background:linear-gradient(145deg,#72ff39,#008b16)}.splash-mode.classic{background:linear-gradient(145deg,#28baff,#063bd7)}
+.splash-mode.master{background:linear-gradient(145deg,#d94bff,#5b08b9)}.splash-mode.tournament{background:linear-gradient(145deg,#ff6565,#c50016)}
+.splash-footer{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:15px auto 0;max-width:570px}
+.splash-footer button{width:49px;height:49px;border:3px solid #fff;border-radius:50%;background:linear-gradient(145deg,#48c8ff,#0342ce);color:#fff;font-size:24px;box-shadow:0 4px 0 #75420b,0 6px 9px #0005}
+.splash-ribbon{padding:8px 18px;border:3px solid #b87510;border-radius:50% 50% 16px 16px;background:linear-gradient(145deg,#fff17a,#ffc21a);font-weight:1000;color:#123b9a;box-shadow:0 5px 0 #8d4d08;font-size:18px}
+.splash-ribbon small{display:block;color:#c21d20;font-size:12px}
+@media(max-width:420px){.splash-inner{padding:8px 7px 14px}.splash-board{width:96%;margin:10px auto 14px}.splash-home span{padding:6px;gap:5px}.splash-mode{min-height:57px;border-radius:16px}.splash-footer button{width:43px;height:43px}.splash-ribbon{font-size:15px;padding:7px 11px}}
+
 </style></head><body><main class="app"><header class="top"><div><div class="brand">ZAIN <span>LUDO</span></div><div class="tag">Created by Zahid Khan Mandan</div></div><div class="tag">MOBILE PLAY TEST</div></header>
-<section class="panel" id="homeScreen"><div style="text-align:center;padding:24px 8px"><div style="font-size:42px;font-weight:1000;color:#ffd34d">ZAIN LUDO</div><div style="color:#dbeafe">Created by Zahid Khan Mandan</div><div style="font-size:76px;margin:22px">🎲</div><button id="playButton" class="roll" style="width:90%;font-size:18px;padding:18px">▶ PLAY NOW</button><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px"><button class="mode homeAction" data-action="friends">👥 FRIENDS</button><button class="mode homeAction" data-action="tournament">🏆 TOURNAMENT</button><button class="mode homeAction" data-action="vip">👑 VIP CLUB</button><button class="mode homeAction" data-action="profile">👤 PROFILE</button></div></div></section><section class="panel" id="modeScreen" hidden><h3>CHOOSE GAME MODE</h3><div class="modes" id="modes"><button class="mode active">Quick</button><button class="mode">Classic</button><button class="mode">Master</button><button class="mode">Tournament</button><button class="mode">Pro</button></div></section>
+<section class="panel" id="homeScreen"><div class="splash-inner">
+<div class="splash-crown">👑</div>
+<div class="splash-logo"><strong>Zain</strong><em>Ludo</em></div>
+<div class="splash-sub">CREATED BY ZAHID KHAN MANDAN</div>
+<div class="splash-board"><div class="splash-board-grid">
+<div class="splash-home red"><span><i></i><i></i><i></i><i></i></span></div>
+<div class="splash-home green"><span><i></i><i></i><i></i><i></i></span></div>
+<div class="splash-home blue"><span><i></i><i></i><i></i><i></i></span></div>
+<div class="splash-home yellow"><span><i></i><i></i><i></i><i></i></span></div>
+</div><div class="splash-cross">✦</div><div class="splash-dice">🎲 🎲</div></div>
+<div class="splash-buttons">
+<button id="playButton" class="splash-mode quick">⚡ Quick</button>
+<button class="splash-mode classic homeAction" data-action="classic">🏆 Classic</button>
+<button class="splash-mode master homeAction" data-action="master">👑 Master</button>
+<button class="splash-mode tournament homeAction" data-action="tournament">🏆 Tournament</button>
+</div>
+<div class="splash-footer">
+<button aria-label="Settings" onclick="alert('Settings will be added in the next stage.')">⚙</button>
+<button aria-label="Statistics" onclick="alert('Statistics will be added in the next stage.')">▥</button>
+<div class="splash-ribbon">Zain Ludo<small>Play • Enjoy • Win</small></div>
+<button aria-label="Information" onclick="alert('Zain Ludo • Created by Zahid Khan Mandan')">i</button>
+<button aria-label="Share" onclick="if(navigator.share)navigator.share({title:'Zain Ludo',url:location.href});else alert(location.href)">↗</button>
+</div></div></section><section class="panel" id="modeScreen" hidden><h3>CHOOSE GAME MODE</h3><div class="modes" id="modes"><button class="mode active">Quick</button><button class="mode">Classic</button><button class="mode">Master</button><button class="mode">Tournament</button><button class="mode">Pro</button></div></section>
 <section class="panel" id="setupScreen" hidden><h3>GAME SETUP</h3><p>Choose players</p><div class="modes" id="playerChoices" style="grid-template-columns:1fr 1fr"><button class="mode active" data-players="2">2 PLAYERS</button><button class="mode" data-players="4">4 PLAYERS</button></div><p>Play type</p><div class="modes" id="teamChoices" style="grid-template-columns:1fr 1fr"><button class="mode active" data-team="solo">SOLO</button><button class="mode" data-team="team">TEAM</button></div><button id="startGame" class="roll" style="width:100%;margin-top:18px">START GAME</button><button id="backToModes" class="mode" style="width:100%;margin-top:8px">BACK</button></section><section class="panel board-wrap" id="boardScreen" hidden><div class="board" id="board"></div></section>
 <section class="panel" id="controlsScreen" hidden><div class="controls"><div class="turn" id="turn">Red's turn<small id="status">Roll the dice to begin</small></div><button class="dice" id="die" aria-label="Dice">⚄</button><button class="roll" id="roll">ROLL DICE</button></div><div class="hint" id="hint">A 6 gives an extra roll. You do not have to release a token immediately.</div><div class="hint" style="font-weight:800">TURN TIME: <span id="timer">20</span>s</div><div class="players" id="players"></div></section>
 </main><script>
@@ -289,12 +346,12 @@ function choose(p,t){if(!canChoose||p!==current||!isMovable(p,t))return;let old=
 if(game[p][t]>=0&&game[p][t]<52){let landing=(starts[p]+game[p][t])%52,safe=[0,8,13,21,26,34,39,47].includes(landing);if(!safe){activePlayers.forEach(op=>{if(op!==p)game[op]=game[op].map(v=>v>=0&&v<52&&(starts[op]+v)%52===landing?-1:v)})}}\ncanChoose=false;let won=game[p].every(v=>v===57);if(won){document.getElementById('hint').textContent=names[p]+' wins! All four tokens reached home.';document.getElementById('status').textContent='WINNER';document.getElementById('roll').disabled=true;renderTokens();return}if(used===6){needBonus=false;document.getElementById('hint').textContent='Move completed. Six gives another roll.';rollValue=0;refresh()}else{document.getElementById('hint').textContent='Move completed.';next()}}
 document.getElementById('roll').onclick=()=>{if(needBonus){needBonus=false;roll()}else roll()};let chosenMode='Quick',chosenPlayers=2,chosenTeam='solo';
 function showScreen(id){['homeScreen','modeScreen','setupScreen','boardScreen','controlsScreen'].forEach(x=>document.getElementById(x).hidden=x!==id)}
-document.getElementById('playButton').onclick=()=>showScreen('modeScreen');
+document.getElementById('playButton').onclick=()=>{chosenMode='Quick';document.querySelectorAll('#modes .mode').forEach(x=>x.classList.toggle('active',x.textContent.trim()==='Quick'));showScreen('setupScreen')};
 document.getElementById('modes').onclick=e=>{const b=e.target.closest('.mode');if(!b)return;chosenMode=b.textContent.trim();document.querySelectorAll('#modes .mode').forEach(x=>x.classList.toggle('active',x===b));showScreen('setupScreen')};
 document.getElementById('playerChoices').onclick=e=>{const b=e.target.closest('[data-players]');if(!b)return;chosenPlayers=Number(b.dataset.players);document.querySelectorAll('#playerChoices .mode').forEach(x=>x.classList.toggle('active',x===b))};
 document.getElementById('teamChoices').onclick=e=>{const b=e.target.closest('[data-team]');if(!b)return;chosenTeam=b.dataset.team;document.querySelectorAll('#teamChoices .mode').forEach(x=>x.classList.toggle('active',x===b))};
 document.getElementById('backToModes').onclick=()=>showScreen('modeScreen');
 document.getElementById('startGame').onclick=()=>{activePlayers=chosenPlayers===2?[0,2]:[0,1,2,3];current=activePlayers[0];game=colors.map(()=>Array(4).fill(-1));rollValue=0;needBonus=false;canChoose=false;timerLeft=20;showScreen('boardScreen');document.getElementById('controlsScreen').hidden=false;document.getElementById('hint').textContent=chosenMode+' • '+chosenPlayers+' players • '+chosenTeam+' • local prototype';draw();refresh();if(turnClock)clearInterval(turnClock);turnClock=setInterval(()=>{if(document.getElementById('boardScreen').hidden)return;timerLeft=Math.max(0,timerLeft-1);document.getElementById('timer').textContent=timerLeft;if(timerLeft===0){document.getElementById('hint').textContent='20 seconds finished — turn passed automatically.';next()}},1000)};
-document.querySelectorAll('.homeAction').forEach(b=>b.onclick=()=>{if(b.dataset.action==='tournament'){chosenMode='Tournament';showScreen('setupScreen')}else alert('This screen will be built in a later stage.')});
+document.querySelectorAll('.homeAction').forEach(b=>b.onclick=()=>{chosenMode=b.dataset.action==='tournament'?'Tournament':b.dataset.action==='classic'?'Classic':'Master';document.querySelectorAll('#modes .mode').forEach(x=>x.classList.toggle('active',x.textContent.trim()===chosenMode));showScreen('setupScreen')});
 draw();refresh();showScreen('homeScreen');
 </script></body></html>
